@@ -8,6 +8,7 @@ import {
 } from 'nativescript-ui-sidedrawer'
 import { filter } from 'rxjs/operators'
 import { Application } from '@nativescript/core'
+import { ItemService } from './item.service'
 
 @Component({
   selector: 'ns-app',
@@ -16,8 +17,9 @@ import { Application } from '@nativescript/core'
 export class AppComponent implements OnInit {
   private _activatedUrl: string
   private _sideDrawerTransition: DrawerTransitionBase
+  public sideDrawerEnabled: boolean = false;
 
-  constructor(private router: Router, private routerExtensions: RouterExtensions) {
+  constructor(private router: Router, private routerExtensions: RouterExtensions, public _appService: ItemService) {
     // Use the component constructor to inject services.
   }
 
@@ -28,6 +30,10 @@ export class AppComponent implements OnInit {
     this.router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => (this._activatedUrl = event.urlAfterRedirects))
+
+    this._appService.sideDrawerEnabled.subscribe(x =>
+      this.sideDrawerEnabled = false
+    );
   }
 
   get sideDrawerTransition(): DrawerTransitionBase {

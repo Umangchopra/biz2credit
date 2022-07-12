@@ -1,9 +1,4 @@
-<!--
-RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
-Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
-https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawer/getting-started
--->
-<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+<RadSideDrawer [gesturesEnabled]="sideDrawerEnabled" [drawerTransition]="sideDrawerTransition">
   <GridLayout tkDrawerContent rows="auto, *" class="nt-drawer__content">
     <StackLayout row="0" class="nt-drawer__header">
       <Image class="nt-drawer__header-image fas t-36" src="font://&#xf2bd;"></Image>

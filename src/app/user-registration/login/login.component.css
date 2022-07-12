@@ -1,0 +1,62 @@
+.header{
+    text-align: center;
+    color: #42A948;
+}
+.resUser{
+    margin-top: 30px;
+    text-align: center;
+    color: black;
+}
+.flexbox{
+    margin-top: 200px;
+    justify-items: center;
+    width: 950px;
+}
+.ng-valid[required] {
+    border-left-color: #42A948; 
+    border-left-width: 3;
+}
+.ng-invalid {
+    border-left-color: #a94442; 
+    border-left-width: 3;
+}
+.validation {
+    background-color: #a94442;
+    color: #ffffff;
+}
+.image{
+    width: 700px;
+    height: 300px;
+}
+.button{
+    background-color: #42A948;
+    color: #ffffff;
+    font-size: 20px;
+}
+.input{
+    font-size: 17px;
+}
+.left{
+    font-size: 17px;
+    text-align: left;
+    color: rgb(207, 200, 200);
+    text-decoration: solid;
+    margin-right: -30px;
+}
+.right{
+    font-size: 17px;
+    text-align: right;
+    color: rgb(207, 200, 200);
+    text-decoration: solid;
+}
+.center{
+    margin-top: 500px;
+    font-size: 17px;
+    text-align: center;
+    color: rgb(207, 200, 200);
+    text-decoration: solid;
+}
+.flexlayout{
+    display: flex;
+    flex-direction: row;
+}
