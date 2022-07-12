@@ -9,6 +9,7 @@ import {
 import { filter } from 'rxjs/operators'
 import { Application } from '@nativescript/core'
 import { ItemService } from './item.service'
+import { SharedServiceService } from './shared-service.service'
 
 @Component({
   selector: 'ns-app',
@@ -18,8 +19,8 @@ export class AppComponent implements OnInit {
   private _activatedUrl: string
   private _sideDrawerTransition: DrawerTransitionBase
   public sideDrawerEnabled: boolean = false;
-
-  constructor(private router: Router, private routerExtensions: RouterExtensions, public _appService: ItemService) {
+  constructor(private router: Router, private routerExtensions: RouterExtensions,
+     public _appService: ItemService,public _sharedService: SharedServiceService,) {
     // Use the component constructor to inject services.
   }
 
@@ -34,6 +35,16 @@ export class AppComponent implements OnInit {
     this._appService.sideDrawerEnabled.subscribe(x =>
       this.sideDrawerEnabled = false
     );
+    this.getCurrentState()
+  }
+
+  
+  getCurrentState() {
+    this._sharedService.componentMethodCalled$.subscribe((data) => {
+      if(data.count==true){
+        this.sideDrawerEnabled = true;
+      }
+    });
   }
 
   get sideDrawerTransition(): DrawerTransitionBase {

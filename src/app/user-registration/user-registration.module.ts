@@ -7,13 +7,15 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 import {  NO_ERRORS_SCHEMA } from '@angular/core'
 import { NativeScriptCommonModule } from '@nativescript/angular';
-import {UserRoutingModule } from './user-registration-routing'
+import { UserRoutingModule } from './user-registration-routing'
+// import { SharedServiceService } from '../shared-service.service';
 
 @NgModule({
   imports: [
     CommonModule,NativeScriptCommonModule,UserRoutingModule,
   ],
   declarations: [LoginComponent,SignupComponent,ForgotPasswordComponent,ChangePasswordComponent],
+  providers:[],
   schemas: [NO_ERRORS_SCHEMA]
 
 })

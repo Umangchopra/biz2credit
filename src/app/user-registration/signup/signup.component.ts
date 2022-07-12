@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from '@nativescript/angular';
+import { SharedServiceService } from '~/app/shared-service.service';
 
 @Component({
   selector: 'app-signup',
@@ -33,7 +34,7 @@ export class SignupComponent implements OnInit {
     { name: "United States", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/us.png" },
   ];
   
-  constructor(public routerEx: RouterExtensions) {
+  constructor(public routerEx: RouterExtensions,public _sharedService: SharedServiceService) {
     this.dataItems = [
       {
         name: 'umang',
@@ -53,6 +54,7 @@ export class SignupComponent implements OnInit {
   }
   
   signUp() {
+    this._sharedService.callComponentMethod(true);
     this.routerEx.navigate(['/home'], { clearHistory: true });
   }
 
@@ -60,3 +62,5 @@ export class SignupComponent implements OnInit {
     this.routerEx.back();
   }
 }
+
+

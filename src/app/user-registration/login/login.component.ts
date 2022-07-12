@@ -5,6 +5,7 @@ import { TextField } from '@nativescript/core';
 // import { alert } from '@nativescript/core';
 // import { Item } from './item'
 import { ItemService } from '../../item.service';
+import { SharedServiceService } from '../../shared-service.service';
 
 
 @Component({
@@ -23,8 +24,9 @@ export class LoginComponent implements OnInit {
   passwordControlIsValid = true;
   @ViewChild('passwordEl', { static: false }) passwordEl: ElementRef<TextField>;
   @ViewChild('emailEl', { static: false }) emailEl: ElementRef<TextField>;
-  constructor(public itemService: ItemService,
-    private router: RouterExtensions,) { }
+  
+  constructor(public itemService: ItemService, public _sharedService: SharedServiceService,private router: RouterExtensions,) { }
+
   ngOnInit(): void {
     // this.items = this.itemService.getItems()
     this.form = new FormGroup({
@@ -38,6 +40,12 @@ export class LoginComponent implements OnInit {
       this.passwordControlIsValid = status == 'VALID';
     });
   }
+
+  // update header data
+  callMethod() {
+    this._sharedService.callComponentMethod(true);
+  };
+
   onSubmit() {
     this.emailEl.nativeElement.focus();
     this.passwordEl.nativeElement.focus();
@@ -53,10 +61,11 @@ export class LoginComponent implements OnInit {
     this.passwordControlIsValid = true;
     this.isLoading = true;
     // this.authenticationService.get_systeme(email, password).subscribe(async (res : System[])=>{
-    //     await this.systemService.createNewSystem(res);
-    //pushnotehandler update appsettings => resub to systems
-    //this.pushNoteHandler.resubAllTopics();
+    // await this.systemService.createNewSystem(res);
+    // pushnotehandler update appsettings => resub to systems
+    // this.pushNoteHandler.resubAllTopics();
     if (this.emailControlIsValid) {
+      this.callMethod()
       this.router.navigate(['/home'], { clearHistory: true });
     }
     // this.isLoading = false;

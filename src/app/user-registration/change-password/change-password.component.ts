@@ -15,11 +15,11 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   submit() {
-		this.routerEx.navigate(['/home'],{ clearHistory: true });
+		this.routerEx.navigate(['/user/login'],{ clearHistory: true });
 	}
 
 	cancel() {
-		this.routerEx.navigate(['/user/login']);
+		this.routerEx.navigate(['/user/login'],{ clearHistory: true });
 	}
 
 }
