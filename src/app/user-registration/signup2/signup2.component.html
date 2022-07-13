@@ -12,10 +12,10 @@
         <FlexboxLayout >
             <Button class="font-bold full-width background-grey" text="CANCEL" (tap)="cancel()"></Button>
             <Button style="margin-left:-20px !important" class="font-white font-bold full-width background-green"
-                text="NEXT" (tap)="next()"></Button>
+                text="SIGN UP" (tap)="signUp()"></Button>
         </FlexboxLayout>
         
-        <RadListView class="list-group" [items]="countries" selectionBehavior="Press" multipleSelection="true"
+        <!-- <RadListView class="list-group" [items]="countries" selectionBehavior="Press" multipleSelection="true"
             (itemSelecting)="onItemSelecting($event)" (itemDeselecting)="onItemSelecting($event)">
             <ng-template let-country="item">
                 <FlexboxLayout flexDirection="row" class="list-group-item">
@@ -24,6 +24,6 @@
                         style="width: 60%"></Label>
                 </FlexboxLayout>
             </ng-template>
-        </RadListView>
+        </RadListView> -->
     </StackLayout>
 </ScrollView>

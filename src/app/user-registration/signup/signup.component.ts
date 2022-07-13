@@ -53,9 +53,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   
-  signUp() {
-    this._sharedService.callComponentMethod(true);
-    this.routerEx.navigate(['/home'], { clearHistory: true });
+  next() {
+    this.routerEx.navigate(['/sign2']);
   }
 
   cancel() {
