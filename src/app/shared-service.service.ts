@@ -9,8 +9,8 @@ export class SharedServiceService {
     constructor() { }
 
     // Service message commands
-    callComponentMethod(count: boolean) {
-        this.componentMethodCallSource.next({ count: count });
+    callComponentMethod(val: boolean) {
+        this.componentMethodCallSource.next({ count: val });
     }
 
 }

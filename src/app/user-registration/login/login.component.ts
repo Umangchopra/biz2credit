@@ -41,11 +41,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // update header data
-  callMethod() {
-    this._sharedService.callComponentMethod(true);
-  };
-
   onSubmit() {
     this.emailEl.nativeElement.focus();
     this.passwordEl.nativeElement.focus();
@@ -65,7 +60,7 @@ export class LoginComponent implements OnInit {
     // pushnotehandler update appsettings => resub to systems
     // this.pushNoteHandler.resubAllTopics();
     if (this.emailControlIsValid) {
-      this.callMethod()
+      this._sharedService.callComponentMethod(true);
       this.router.navigate(['/home'], { clearHistory: true });
     }
     // this.isLoading = false;
