@@ -1,30 +1,32 @@
 <ActionBar title=""> </ActionBar>
 
-<StackLayout *ngIf="this.itemService.isItem" class="flexbox form">
-    <Image src="~/assets/biz2credit.png" class="image"></Image>
-    <StackLayout *ngIf="!isLoading" class="input-field">
-        <TextField class="input" hint="Enter E-Mail" keyboardType="email" required [autocorrect]="false"
-            autocapitalizationType="none" #emailEl></TextField>
-        <Label class="label" *ngIf="!emailControlIsValid" text="Please enter a valid E-Mail"></Label>
+<ScrollView class="page" style="background:#f7f4ec;">
+    <StackLayout *ngIf="this.itemService.isItem" class="flexbox form">
+        <Image src="~/assets/biz2credit.png" class="image"></Image>
+        <StackLayout *ngIf="!isLoading" class="input-field">
+            <TextField class="input" hint="Enter E-Mail" keyboardType="email" required [autocorrect]="false"
+                autocapitalizationType="none" #emailEl></TextField>
+            <Label class="label" *ngIf="!emailControlIsValid" text="Please enter a valid E-Mail"></Label>
+        </StackLayout>
+        <StackLayout *ngIf="!isLoading" class="input-field">
+            <TextField class="input" hint="Enter Password" [secure]="true" required returnKeyType="go"
+                [autocorrect]="false" #passwordEl>
+            </TextField>
+            <Label class="label" *ngIf="!passwordControlIsValid" text="Please enter a valid Password"></Label>
+        </StackLayout>
+        <Button class="button" text="LOGIN" (tap)="onSubmit()" *ngIf="!isLoading">
+        </Button>
+        <!--[isEnabled]="form.valid"-->
+        <GridLayout columns="*,2*" verticalAlignment="top" width="350">
+            <label class="left" col="0" text="Forgot Password" (tap)="forgetPassword()" *ngIf="!isLoading"></label>
+            <label class="right" col="1" text="Create New ID" (tap)="registerUser()" *ngIf="!isLoading"></label>
+        </GridLayout>
+        <GridLayout rows="*,2*" verticalAlignment="bottom" width="350">
+            <label class="center" row="1" text="Privacy Policy | Terms & Conditions" *ngIf="!isLoading">
+            </label>
+        </GridLayout>
+        <FlexboxLayout justifyContent="center" alignItems="center" *ngIf="isLoading">
+            <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+        </FlexboxLayout>
     </StackLayout>
-    <StackLayout *ngIf="!isLoading" class="input-field">
-        <TextField class="input" hint="Enter Password" [secure]="true" required returnKeyType="go" [autocorrect]="false"
-            #passwordEl>
-        </TextField>
-        <Label class="label" *ngIf="!passwordControlIsValid" text="Please enter a valid Password"></Label>
-    </StackLayout>
-    <Button class="button" text="LOGIN" (tap)="onSubmit()" *ngIf="!isLoading">
-    </Button>
-    <!--[isEnabled]="form.valid"-->
-    <GridLayout columns="*,2*" verticalAlignment="top" width="350">
-        <label class="left" col="0" text="Forgot Password" (tap)="forgetPassword()" *ngIf="!isLoading"></label>
-        <label class="right" col="1" text="Create New ID" (tap)="registerUser()" *ngIf="!isLoading"></label>
-    </GridLayout>
-    <GridLayout rows="*,2*" verticalAlignment="bottom" width="350">
-        <label class="center" row="1" text="Privacy Policy | Terms & Conditions" *ngIf="!isLoading">
-        </label>
-    </GridLayout>
-    <FlexboxLayout justifyContent="center" alignItems="center" *ngIf="isLoading">
-        <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
-    </FlexboxLayout>
-</StackLayout>
+</ScrollView>

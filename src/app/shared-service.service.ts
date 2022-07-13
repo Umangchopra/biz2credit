@@ -10,7 +10,7 @@ export class SharedServiceService {
 
     // Service message commands
     callComponentMethod(val: boolean) {
-        this.componentMethodCallSource.next({ count: val });
+        this.componentMethodCallSource.next({ value: val });
     }
 
 }

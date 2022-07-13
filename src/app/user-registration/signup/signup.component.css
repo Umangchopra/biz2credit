@@ -9,3 +9,7 @@ TextField {
   border:1px solid;
   padding:20px
 }
+
+ActionBar {
+  height: 0;
+}

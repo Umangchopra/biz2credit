@@ -39,9 +39,10 @@ export class AppComponent implements OnInit {
   }
 
   
+  // to check user is in login state or not 
   getCurrentState() {
     this._sharedService.componentMethodCalled$.subscribe((data) => {
-      if(data.count==true){
+      if(data.value==true){
         this.sideDrawerEnabled = true;
       }
     });
