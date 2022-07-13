@@ -20,11 +20,11 @@ export class Signup2Component implements OnInit {
   }
 
   signUp() {
-    this._sharedService.callComponentMethod(true);
+    // this._sharedService.callComponentMethod(true);
     this.routerEx.navigate(['/home'], { clearHistory: true });
   }
 
-  cancel() {
+  back() {
     this.routerEx.back();
   }
 

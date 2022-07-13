@@ -54,7 +54,8 @@ export class SignupComponent implements OnInit {
   }
   
   next() {
-    this.routerEx.navigate(['/sign2']);
+    // this._sharedService.callComponentMethod(true);
+    this.routerEx.navigate(['/user/my']);
   }
 
   cancel() {

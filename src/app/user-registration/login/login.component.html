@@ -1,7 +1,6 @@
 <ActionBar title=""> </ActionBar>
-
 <ScrollView class="page" style="background:#f7f4ec;">
-    <StackLayout *ngIf="this.itemService.isItem" class="flexbox form">
+    <StackLayout style="margin-top:400px" *ngIf="this.itemService.isItem" class="flexbox form">
         <Image src="~/assets/biz2credit.png" class="image"></Image>
         <StackLayout *ngIf="!isLoading" class="input-field">
             <TextField class="input" hint="Enter E-Mail" keyboardType="email" required [autocorrect]="false"
